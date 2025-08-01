@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/market.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Product Details</title>
+</head>
+<body>
+    <!-- Header Section -->
+    <%- include('partials/header.ejs') %>
+
+    <!-- Main Content Section -->
+    <main>
+        <div class="user-info">
+            <h1>Welcome <span><%= user.displayName %></span>!</h1>
+            <img src="<%= user.picture %>" alt="User Profile Picture">
+            <table>
+                <tr>
+                    <th>OAuth Provider:</th>
+                    <td><%= user.provider %></td>
+                </tr>
+                <tr>
+                    <th>ID:</th>
+                    <td><%= user.id %></td>
+                </tr>
+                <tr>
+                    <th>Username:</th>
+                    <td><%= user.displayName %></td>
+                </tr>
+                <tr>
+                    <th>Email:</th>
+                    <td><%= user.emails[0].value %></td>
+                </tr>
+            </table>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>

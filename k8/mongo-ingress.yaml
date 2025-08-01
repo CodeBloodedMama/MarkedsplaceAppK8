@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mongo-express-ingress
+  namespace: mongodb-namespace
+  annotations:
+  nginx.ingress.kubernetes.io/re-write-target: /
+spec:
+  rules:
+    - host: mongo-express.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: mongodb-express-service
+                port:
+                  number: 8081

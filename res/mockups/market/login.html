@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="market.css"> <!-- Link to your CSS file -->
+    <title>Marketplace</title>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <a href="./market.html" class="logo">Marketplace</a>
+        <nav class="nav-items">
+            <a href="./market.html">Home</a>
+            <a href="./market.html">Products</a>
+            <a href="./sell.html">Sell</a>
+            <a href="./contact.html">Contact</a>
+            <a href="./login.html">Login</a>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <div class="login-container">
+            <h1>Login</h1>
+            <form action="process_login.php" method="post">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2024 Marketplace. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,31 +1,50 @@
-# Marketplace App - Exam project for web architecture and orchestration
+# Marketplace App - Exam project
+
+## Idea
 
 Marketplace service
 
 ## Description
 
-A marketplace application were users can set items for sale and buy items from other users.
+A marketplace application were users can set items for sale and buy items from other users. The app will demonstrate at least 75% of the techniques we've learned throughout this course.
 
-## Tech stack
+## Techniques
+
+### Notation
+- (+) - All techniques applied
+- (/) - Partly applied
+- (-) - Not applied
 
 ### Checklist
 
 - (+) Lecture 01 - Nodejs, Express, Postman, TypeScript, Nodemon
-- (+) Lecture 02 - MongoDB, Mongoose, Microservice, Schemas
+- (/) Lecture 02 - MongoDB, Mongoose, Microservice, (/) CRUD, Schemas
 - (+) Lecture 03 - Containerisation, Docker, Rancher/DockerDesktop
+- (/) Lecture 04 - Docker, (-) multi-stage/arch, (-) CI/CD gitlab pipeline,
+- (/) Lecture 05 - Composing, (-) debugging, Networking
 - (+) Lecture 06 - GraphQL, Apollo Server
-- (+) Lecture 07 - GraphQLGQL
+- (/) Lecture 07 - GraphQL, (-) SQL, (-) Prisma, (-) TypeGraphQL, GQL CRUD, (-) Dataloader
+- (-) Lecture 08 - gRPC
+- (/) Lecture 09 - concurrency conflicts
 - (+) Lecture 10 - RabbitMQ queues, brokers
+- (/) Lecture 11 - RabbitMQ patterns
 - (+) Lecture 12 - Monolith to Microservices
+- (/) Lecture 13 - Microservices in .NET - Resilience
+- (/) Lecture 14 - Microservices in .NET - Telemetry
+- (-) Lecture 15 - API Gateways
 - (+) Lecture 16 - Kubernetes Concepts, Local Cluster, OpenLens, kubectl
-- (+) Lecture 18 - Kubernetes Basics, pods, services, ingress, yamls
-- (+) Lecture 19+20 - Kubernetes Basics part, app+db pod,
+- (-) Lecture 17 - Saga Pattern
+- (/) Lecture 18 - Kubernetes Basics, pods, services, ingress, (/) labels, (/) namespaces, yamls
+- (+/) Lecture 19+20 - Kubernetes Basics part 2, app+db pod, (-) storage, (-) statefulSet
+- (/) Lecture 21 - real cluster, kubeconfig, (-) cluster apps, migration, (-) gitops&argo, (-) gitlab CI/CD
+- (/) Lecture 22 - OAuth 2.0, passport, google cloud console, (/) OpenID Connect
+- (-) Lecture 23 - Kubernetes Security and more 
 
 ### Percentage
 
 Total courses: 23
 
-Applied/partly applied : 19
+Applied/partly applied: 19
 
 Percentage: 18/23 = 83%
 

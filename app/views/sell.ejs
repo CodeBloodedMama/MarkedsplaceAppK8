@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/market.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Marketplace</title>
+</head>
+<body>
+    <!-- Header Section -->
+    <%- include('partials/header.ejs') %>
+
+    <!-- Main Content Section -->
+    <main>
+        <div class="input-container">
+            <h1>Set Your Product for Sale</h1>
+            <form action="sell" method="POST" enctype="multipart/form-data">
+                <label for="product-name">Product Name</label>
+                <input type="text" id="product-name" name="name" placeholder="Enter product name" required>
+
+                <label for="product-description">Product Description</label>
+                <textarea id="product-description" name="description" rows="4" placeholder="Describe your product" required></textarea>
+
+                <label for="product-price">Price</label>
+                <input type="number" id="product-price" name="price" placeholder="Enter price" required>
+
+                <label for="product-image">Product Image</label>
+                <input type="file" id="product-image" name="image" value="" required>
+
+                <label for="product-category">Product Category</label>
+                <select id="product-category" name="category">
+                    <option value="electronics">Electronics</option>
+                    <option value="clothing">Clothing</option>
+                    <option value="home">Home & Living</option>
+                    <!-- Add more categories as needed -->
+                </select>
+
+                <button type="submit" class="button">List Product</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>

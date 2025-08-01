@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apollo-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apollo-app
+  template:
+    metadata:
+      labels:
+        app: apollo-app
+    spec:
+      containers:
+      - name: apollo-app
+        image: au618687/apollo-app:latest
+        ports:
+        - containerPort: 4000
+        env:
+          - name: NODE_ENV
+            value: development # this launches apollo in GUI mode instead of curl mode
+        resources:
+          requests:
+            cpu: 200m
+            memory: 300Mi
+          limits:
+            cpu: 200m
+            memory: 300Mi

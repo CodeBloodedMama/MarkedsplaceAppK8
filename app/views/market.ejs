@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/market.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Marketplace</title>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <%- include('partials/header.ejs') %>
+
+    <!-- Main Content Section -->
+    <main>
+        <div class="intro">
+            <h1>Welcome to Our Marketplace<%= user ? " " + user.displayName : "" %></h1>
+            <p>Please login to list a product.</p>
+            <a type="button" href="login" class="button">Login</a>
+        </div>
+
+        <!-- Featured Products -->
+        <div class="featured-products">
+            <!-- Product Cards (You can add more) -->
+            <% if(Object.keys(products).length> 0) { %>
+                <% products.forEach(product=> { %>
+                    <div class="product-card">
+                        <a href="details?_key=<%= product._id %>">
+                            <% if(product.image != "none") {%>
+                            <img 
+                                src="data:image/<%=product.image.contentType%>;base64,
+                                    <%=product.image.data.toString('base64')%>" 
+                                alt="<No image>"
+                            />
+                            <% } else { %>
+                                <img src="" alt="<No image>"/>
+                            <% } %>
+
+                            <h2><%= product.name %> </h2>
+                            <p><%= product.description %> </p>
+                            <span>$<%= product.price %></span>
+                            <p><%= moment(product.created_at).fromNow() %></p>
+                        </a>
+                        <% if(user && user.id == product.sellerId) { %>
+                            <a href="javascript:;" onclick="this.children[0].submit()"
+                                class="text-danger">
+                                <form method="POST" action="product/destroy">
+                                    <input type="hidden" name="_key" value="<%= product._id %>" />
+                                </form>
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        <% } %>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <div class="text-center"><strong>Please set a product for sale.</strong></div>
+            <% }%>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <%- include('partials/footer.ejs') %>
+</body>
+
+</html>

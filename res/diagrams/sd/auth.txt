@@ -1,0 +1,34 @@
+@startuml
+actor "User 2" as user2
+actor "User 1" as user1
+participant "Market App" as market
+participant "Apollo App" as apollo
+database "Mongo Database" as mongo
+participant "google.com" as google
+
+' Apollo create user
+user1 -> apollo : signup user
+apollo -> mongo : persist user
+mongo --> apollo : user persisted
+apollo -> apollo : sign jwt with user info
+apollo --> user1 : jwt
+user1 -> market : log in
+market -> mongo : find user in database
+market -> market : sign jwt
+market --> user1 : jwt
+
+' Market third party login
+
+user2 -> market : list item for sale
+market --> user2 : NOT AUTHORIZED
+user2 -> market : log in through Google
+market -> google : request authorization for user2
+google --> user2 : request authorization
+user2 -> google : grant authorization
+google --> market : send auth code 
+market -> google : exchange code for access token
+google --> market : send access token
+user2 -> market : list item for sale
+market -> mongo : presist item
+mongo --> market : item persited
+@enduml

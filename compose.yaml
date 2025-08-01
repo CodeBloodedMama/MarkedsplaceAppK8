@@ -1,0 +1,84 @@
+services:
+  marketplace-app:
+    image: au618687/marketplace-app
+    build:
+      context: ./app
+    depends_on:
+      - marketplace-mongodb
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+      - 35729:35729
+    develop:
+      watch:
+        - path: ./app/package.json
+          action: rebuild
+        - path: ./app
+          target: /usr/src/app
+          action: sync
+
+  apollo-app:
+    image: au618687/apollo-app
+    build:
+      context: ./apollo-app
+    depends_on:
+      - marketplace-mongodb
+    environment:
+      # setting to 'development' enables the apollo playground,
+      # if set to 'production' we must use curl
+      NODE_ENV: development
+    ports:
+      - 4000:4000
+      - 35730:35730
+    develop:
+      watch:
+        - path: ./apollo-app/package.json
+          action: rebuild
+        - path: ./apollo-app
+          target: /usr/src/apollo-app
+          action: sync
+  
+  message-service:
+    image: au618687/message-service
+    build:
+      context: ./message-service
+    depends_on:
+      - rabbit-server
+    environment:
+      NODE_ENV: production
+    ports:
+      - 5000:5000
+      - 35731:35731
+    develop:
+      watch:
+        - path: ./message-service/package.json
+          action: rebuild
+        - path: ./message-service
+          target: /usr/src/message-service
+          action: sync
+  
+  rabbit-server:
+    image: au618687/rabbit-server
+    build:
+      context: ./rmq-server
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - 5672:5672
+      - 15672:15672
+
+  marketplace-mongodb:
+    image: au618687/marketplace-mongodb
+    build:
+      context: ./mongodb
+    # comment out for no persist
+    volumes:
+      - database:/data/db
+    ports:
+      - 27017:27017
+
+# comment out for no persist
+volumes:
+  database:

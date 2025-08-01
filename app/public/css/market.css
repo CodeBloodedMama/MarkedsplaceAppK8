@@ -1,0 +1,360 @@
+/* Global styles */* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Header styles */
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.logo img:hover {
+    box-shadow: none;
+}
+
+.logo img {
+    max-width: 60px;
+    border-radius: 30px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px black;
+}
+
+.user-logo img {
+    max-width: 40px;
+    border-radius: 20px;
+    height: auto;
+    display: inline;
+    margin: 0 auto;
+}
+
+.nav-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-items a {
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Main content styles */
+main {
+    padding: 2rem;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.intro h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.intro p {
+    font-size: 1.1rem;
+    color: #777;
+}
+
+/* Featured products styles */
+.featured-products {
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 1rem; /* equal spacing - even if last row has fewer elements */
+    flex-wrap: wrap;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: calc(25% - 1rem);
+    box-shadow: 0 2px 4px black;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product-card h2 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.product-card p {
+    font-size: 1rem;
+    color: #777;
+}
+
+.product-card span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+.social-icons a {
+    color: #fff;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+
+/* product details */
+
+.product-details {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+}
+
+.product-details img {
+    max-width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.product-details h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-details .description {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+.product-details .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+/* login */
+
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.google-button {
+    background-color: #4285F4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.google-button img {
+    margin-right: 10px;
+}
+.google-button:hover {
+    background-color: #3367D6;
+}
+
+/* contact */
+
+.input-container form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.input-container label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.input-container input, .input-container textarea, .input-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* user information */
+
+.user-info {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.user-info h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.user-info img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+.user-info table {
+    width: 100%;
+    text-align: left;
+    margin-top: 20px;
+}
+.user-info th,
+.user-info td {
+    padding: 5px;
+}
+.user-info th {
+    font-weight: bold;
+}
+.user-info td{
+    color: #007bff; /* Blue color for emphasis */
+}
+
+/* notification */
+
+.notification-bell {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    background-color: #f00;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px black;
+}
+
+.notification-bell:hover {
+    box-shadow: none;
+}
+
+.bell-icon {
+    width: 11px;
+    height: 11px;
+    background-color: #333;
+    border-radius: 50%;
+}
+
+.notification-count {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    background-color: #fff;
+    color: #f00;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    font-size: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification-popup {
+    position: absolute;
+    top: 30px;
+    right: -5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: none;
+    max-height: 300px;
+    overflow-y: auto;
+    width: 200px;
+    box-shadow: 0 2px 4px grey;
+}
+
+.notification-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.notification-list {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.notification-list:last-child {
+    border-bottom: none;
+}

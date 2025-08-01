@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: apollo-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: swwao.courses.orbit.au.dk
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/grp-4/apollo(/|$)(.*)"
+            backend:
+              service:
+                name: apollo-service
+                port:
+                  number: 8080

@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.messenger {
+    max-width: 400px;
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.chat {
+    height: 300px;
+    overflow-y: scroll;
+    padding: 10px;
+    scroll-behavior: smooth;
+}
+
+.message {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+    clear: both;
+    overflow: hidden;
+}
+
+.received {
+    background-color: #f1f1f1;
+    float: left;
+}
+
+.sent {
+    background-color: #007bff;
+    color: white;
+    float: right;
+}
+
+.message-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.message-name {
+    font-weight: bold;
+}
+
+.message-timestamp {
+    color: #777;
+    font-size: 0.8em;
+}
+
+.message-text {
+    word-wrap: break-word;
+}
+
+.input-box {
+    display: flex;
+    background-color: #fff;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 0;
+    outline: none;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f9f9f9;
+}

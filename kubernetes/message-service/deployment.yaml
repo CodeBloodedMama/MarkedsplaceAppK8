@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: message-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: message-app
+  template:
+    metadata:
+      labels:
+        app: message-app
+    spec:
+      containers:
+      - name: message-app
+        image: au618687/message-service:latest
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            cpu: 200m
+            memory: 300Mi
+          limits:
+            cpu: 200m
+            memory: 300Mi

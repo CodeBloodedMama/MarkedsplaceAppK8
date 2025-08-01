@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/market.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Product Details</title>
+</head>
+<body>
+    <!-- Header Section -->
+    <%- include('partials/header.ejs') %>
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- Product Details Section -->
+        <div class="product-details">
+            <% if(product.image != "none") {%>
+                <img 
+                    src="data:image/<%=product.image.contentType%>;base64,
+                        <%=product.image.data.toString('base64')%>" 
+                    alt="<No image>"
+                />
+            <% } else { %>
+                <img src="" alt="<No image>"/>
+            <% } %>
+            <h1><%= product.name %></h1>
+            <p class="description"><%= product.description %></p>
+            <p class="price">$<%= product.price %></p>
+            <form method="POST" action="messageRedirect">
+                <input type="hidden" name="sellerId" value="<%= product.sellerId %>" />
+                <button type="submit" class="button">Contact Seller</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>
+

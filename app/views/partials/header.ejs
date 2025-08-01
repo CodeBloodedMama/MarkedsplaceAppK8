@@ -1,0 +1,28 @@
+<header class="header">
+    <a href="market" class="logo">
+        <img src="img/icon.jpg" alt="Marketplace Logo">
+    </a>
+    <link rel="icon" type="image/jpeg" href="img/icon.jpg"/>
+    <nav class="nav-items">
+        <a href="market">Products</a>
+        <a href="sell">Sell</a>
+        <a href="contact">Contact</a>
+        <a href="apollo" target="_blank">Apollo</a>
+        <a href="http://localhost:15672/" target="_blank">Rabbit</a>
+        <% if(user) { %>
+            <a href="logout">Logout</a>
+            <a>
+                <div class="notification-bell">
+                    <div class="bell-icon"></div>
+                    <div class="notification-count" id="noti-count"></div>
+                    <div class="notification-popup" id="noti-popup"></div>
+                </div>
+            </a>
+            <a href="user" class="user-logo">
+                <img src="<%= user.picture %>" alt="<%= user.displayName %>">
+            </a>
+        <% } else{ %>
+            <a href="login">Login</a>
+        <% } %>
+    </nav>
+</header>

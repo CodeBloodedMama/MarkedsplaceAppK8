@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbit-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rabbit-app
+  template:
+    metadata:
+      labels:
+        app: rabbit-app
+    spec:
+      containers:
+      - name: rabbit-app
+        image: au618687/rabbit-server:latest
+        ports:
+        - containerPort: 5672
+        - containerPort: 15672
+        resources:
+          requests:
+            cpu: 200m
+            memory: 400Mi
+          limits:
+            cpu: 200m
+            memory: 400Mi

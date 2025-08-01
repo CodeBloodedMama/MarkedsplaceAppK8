@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notification Bell</title>
+<style>
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.notification-bell {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: #f00;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.bell-icon {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.notification-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #fff;
+  color: #f00;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-popup {
+  position: absolute;
+  top: 60px;
+  right: -10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: none;
+  max-height: 300px;
+  overflow-y: auto;
+  width: 200px;
+  box-shadow: 0 2px 4px grey;
+}
+}
+
+.notification-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.notification-list {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.notification-list:last-child {
+  border-bottom: none;
+}
+
+
+
+
+</style>
+</head>
+<body>
+<div class="notification-bell">
+  <div class="bell-icon"></div>
+  <div class="notification-count">3</div>
+  <div class="notification-popup">
+    <ul class="notification-list">Notification 1</ul>
+    <ul class="notification-list">Notification 2</ul>
+    <ul class="notification-list">Notification 3</ul>
+    <ul class="notification-list">Notification 4</ul>
+    <ul class="notification-list">Notification 5</ul>
+    <ul class="notification-list">Notification 6</ul>
+  </div>
+</div>
+<script>
+  const notificationBell = document.querySelector('.notification-bell');
+  const notificationPopup = document.querySelector('.notification-popup');
+
+  notificationBell.addEventListener('click', function() {
+    // Show notification popup
+    notificationPopup.style.display = 'block';
+  });
+
+  // Close notification popup when clicking outside of it
+  document.addEventListener('click', function(event) {
+    if (!notificationBell.contains(event.target) && !notificationPopup.contains(event.target)) {
+      notificationPopup.style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>

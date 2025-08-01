@@ -1,0 +1,91 @@
+<html>
+<head>
+<style>
+  body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.bell {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.bell::before {
+  content: "\1F514";
+}
+
+.notification-list {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-width: 200px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.notification-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.notification-list li {
+  margin-bottom: 5px;
+  padding: 5px;
+  background-color: #f9f9f9;
+  border-radius: 3px;
+}
+</style>
+</head>
+
+<body>
+  <div class="container">
+  <button id="notificationButton" class="bell"></button>
+  <div id="notificationList" class="notification-list">
+    <ul id="notifications"></ul>
+  </div>
+</div>
+  <script>
+    const notificationButton = document.getElementById('notificationButton');
+const notificationList = document.getElementById('notificationList');
+const notifications = document.getElementById('notifications');
+
+notificationButton.addEventListener('click', function() {
+  const rect = notificationButton.getBoundingClientRect();
+  notificationList.style.display = notificationList.style.display === 'block' ? 'none' : 'block';
+  notificationList.style.top = rect.bottom + 'px';
+  notificationList.style.left = rect.left + 'px';
+});
+
+// Simulated notifications
+const notificationData = ['Notification 1', 'Notification 2', 'Notification 3'];
+
+notificationData.forEach(notification => {
+  const li = document.createElement('li');
+  li.textContent = notification;
+  notifications.appendChild(li);
+});
+
+  </script>
+</body>
+</html>

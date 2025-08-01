@@ -1,0 +1,41 @@
+@startuml
+actor "User 2" as user2
+actor "User 1" as user1
+participant "Market App" as market
+participant "Message App" as message
+participant "Rabbit Server" as rabbit
+database "Mongo Database" as mongo
+
+' User 1 lists item
+user1 -> market : list item for sale
+market -> mongo : persist item
+mongo --> market : item persisted
+
+' User 2 views item
+user2 -> market : enter market
+market -> mongo : get items
+mongo --> market : items
+market --> user2 : display list of items
+user2 -> market : show details on user1's item
+market -> mongo : get specific item
+mongo --> market : item
+market --> user2 : present item
+
+' User 2 messages User 1
+
+user2 -> market : start message session w/ user1
+market --> user2 : redirect to message app
+user2 -> message : send message to user2
+message -> rabbit : queue message
+
+' User 1 notified
+
+market -> rabbit : get user1 messages
+rabbit --> market : messages
+market -> user1 : notify of messages
+user1 -> market : click on notification
+market --> user1 : redirect to message app
+message -> rabbit : consume user1 messages
+rabbit --> message : messages
+message --> user1 : display messages
+@enduml
