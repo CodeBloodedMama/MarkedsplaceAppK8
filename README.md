@@ -1,19 +1,12 @@
-# Marketplace App - Exam project
-
-## Idea
+# Marketplace App - Exam project for web architecture and orchestration
 
 Marketplace service
 
 ## Description
 
-A marketplace application were users can set items for sale and buy items from other users. The app will demonstrate at least 75% of the techniques we've learned throughout this course.
+A marketplace application were users can set items for sale and buy items from other users.
 
-## Techniques
-
-### Notation
-- (+) - All techniques applied
-- (/) - Partly applied
-- (-) - Not applied
+## Tech stack
 
 ### Checklist
 
